@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   entry: './public/app.jsx',
   output: {
@@ -5,6 +7,11 @@ module.exports = {
     filename: './public/bundle.js'
   },
   resolve: {
+    alias: {
+      Greeter: path.resolve(__dirname, 'public/components/Greeter.js'),
+      GreeterForm: path.resolve(__dirname, 'public/components/GreeterForm.js'),
+      GreeterMessage: path.resolve(__dirname, 'public/components/GreeterMessage.js')
+    },
     extensions: ['*', '.js', '.jsx']
   },
   module: {
