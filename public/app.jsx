@@ -1,4 +1,9 @@
-var GreeterMessage = React.createClass({
+var React = require('react');
+var ReactDOM = require('react-dom');
+var createReactClass = require('create-react-class')
+
+// var GreeterMessage = React.createClass({
+var GreeterMessage = createReactClass({
   render: function () {
     var name = this.props.name;
     var message = this.props.message
@@ -12,7 +17,8 @@ var GreeterMessage = React.createClass({
   }
 });
 
-var GreeterForm = React.createClass({
+// var GreeterForm = React.createClass({
+var GreeterForm = createReactClass({
   onFormSubmit: function (e) {
     e.preventDefault();
 
@@ -22,12 +28,12 @@ var GreeterForm = React.createClass({
 
     if (name.length > 0) {
       this.refs.name.value = '';
-      updates.name = name
+      updates.name = name;
     }
 
     if (message.length > 0) {
       this.refs.message.value = '';
-      updates.message = name
+      updates.message = message;
     }
 
     // Mandamos en las propiedades de este componente el método que maneja el State del nombre del componente contenedor
@@ -46,7 +52,8 @@ var GreeterForm = React.createClass({
   }
 });
 
-var Greeter = React.createClass({
+// var Greeter = React.createClass({
+var Greeter = createReactClass({
   getDefaultProps: function () {
     return {
       name: 'React',

@@ -4,20 +4,22 @@
   "description": "'A simple react example'",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development"
   },
   "author": "Edgar Quintana",
   "license": "MIT",
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "express": "^4.16.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   }
