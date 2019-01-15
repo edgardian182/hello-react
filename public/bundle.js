@@ -308,7 +308,40 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar createReactClass = __webpack_require__(/*! create-react-class */ \"./node_modules/create-react-class/index.js\"); // var GreeterMessage = React.createClass({\n\n\nvar GreeterMessage = createReactClass({\n  displayName: \"GreeterMessage\",\n  render: function render() {\n    var name = this.props.name;\n    var message = this.props.message;\n    return React.createElement(\"div\", null, React.createElement(\"h1\", null, \"Hello \", name, \"!\"), React.createElement(\"p\", null, message));\n  }\n}); // var GreeterForm = React.createClass({\n\nvar GreeterForm = createReactClass({\n  displayName: \"GreeterForm\",\n  onFormSubmit: function onFormSubmit(e) {\n    e.preventDefault();\n    var updates = {};\n    var name = this.refs.name.value;\n    var message = this.refs.message.value;\n\n    if (name.length > 0) {\n      this.refs.name.value = '';\n      updates.name = name;\n    }\n\n    if (message.length > 0) {\n      this.refs.message.value = '';\n      updates.message = message;\n    } // Mandamos en las propiedades de este componente el método que maneja el State del nombre del componente contenedor\n\n\n    this.props.onNewData(updates);\n  },\n  render: function render() {\n    return React.createElement(\"form\", {\n      onSubmit: this.onFormSubmit\n    }, React.createElement(\"input\", {\n      type: \"text\",\n      ref: \"name\",\n      placeholder: \"Nombre\"\n    }), React.createElement(\"br\", null), React.createElement(\"textarea\", {\n      cols: \"18\",\n      rows: \"5\",\n      ref: \"message\",\n      placeholder: \"Descripcion\"\n    }), React.createElement(\"br\", null), React.createElement(\"button\", null, \"Set Change\"));\n  }\n}); // var Greeter = React.createClass({\n\nvar Greeter = createReactClass({\n  displayName: \"Greeter\",\n  getDefaultProps: function getDefaultProps() {\n    return {\n      name: 'React',\n      message: 'This is my first component'\n    };\n  },\n  getInitialState: function getInitialState() {\n    return {\n      name: this.props.name,\n      message: this.props.message\n    };\n  },\n  handleNewData: function handleNewData(updates) {\n    this.setState(updates);\n  },\n  render: function render() {\n    var name = this.state.name;\n    var message = this.state.message;\n    return React.createElement(\"div\", null, React.createElement(GreeterMessage, {\n      name: name,\n      message: message\n    }), React.createElement(GreeterForm, {\n      onNewData: this.handleNewData\n    }));\n  }\n});\nvar firstName = 'Edgar';\nReactDOM.render(React.createElement(Greeter, {\n  name: firstName,\n  message: \"Bienvenido a nuestro Blog\"\n}), document.getElementById('app'));\n\n//# sourceURL=webpack:///./public/app.jsx?");
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar createReactClass = __webpack_require__(/*! create-react-class */ \"./node_modules/create-react-class/index.js\");\n\nvar Greeter = __webpack_require__(/*! ./components/Greeter */ \"./public/components/Greeter.js\");\n\nvar firstName = 'Edgar';\nReactDOM.render(React.createElement(Greeter, {\n  name: firstName,\n  message: \"Bienvenido a nuestro Blog\"\n}), document.getElementById('app'));\n\n//# sourceURL=webpack:///./public/app.jsx?");
+
+/***/ }),
+
+/***/ "./public/components/Greeter.js":
+/*!**************************************!*\
+  !*** ./public/components/Greeter.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar createReactClass = __webpack_require__(/*! create-react-class */ \"./node_modules/create-react-class/index.js\");\n\nvar GreeterMessage = __webpack_require__(/*! ./GreeterMessage */ \"./public/components/GreeterMessage.js\");\n\nvar GreeterForm = __webpack_require__(/*! ./GreeterForm */ \"./public/components/GreeterForm.js\");\n\nvar Greeter = createReactClass({\n  displayName: \"Greeter\",\n  getDefaultProps: function getDefaultProps() {\n    return {\n      name: 'React',\n      message: 'This is my first component'\n    };\n  },\n  getInitialState: function getInitialState() {\n    return {\n      name: this.props.name,\n      message: this.props.message\n    };\n  },\n  handleNewData: function handleNewData(updates) {\n    this.setState(updates);\n  },\n  render: function render() {\n    var name = this.state.name;\n    var message = this.state.message;\n    return React.createElement(\"div\", null, React.createElement(GreeterMessage, {\n      name: name,\n      message: message\n    }), React.createElement(GreeterForm, {\n      onNewData: this.handleNewData\n    }));\n  }\n});\nmodule.exports = Greeter;\n\n//# sourceURL=webpack:///./public/components/Greeter.js?");
+
+/***/ }),
+
+/***/ "./public/components/GreeterForm.js":
+/*!******************************************!*\
+  !*** ./public/components/GreeterForm.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar createReactClass = __webpack_require__(/*! create-react-class */ \"./node_modules/create-react-class/index.js\");\n\nvar GreeterForm = createReactClass({\n  displayName: \"GreeterForm\",\n  onFormSubmit: function onFormSubmit(e) {\n    e.preventDefault();\n    var updates = {};\n    var name = this.refs.name.value;\n    var message = this.refs.message.value;\n\n    if (name.length > 0) {\n      this.refs.name.value = '';\n      updates.name = name;\n    }\n\n    if (message.length > 0) {\n      this.refs.message.value = '';\n      updates.message = message;\n    } // Mandamos en las propiedades de este componente el método que maneja el State del nombre del componente contenedor\n\n\n    this.props.onNewData(updates);\n  },\n  render: function render() {\n    return React.createElement(\"form\", {\n      onSubmit: this.onFormSubmit\n    }, React.createElement(\"input\", {\n      type: \"text\",\n      ref: \"name\",\n      placeholder: \"Nombre\"\n    }), React.createElement(\"br\", null), React.createElement(\"textarea\", {\n      cols: \"18\",\n      rows: \"5\",\n      ref: \"message\",\n      placeholder: \"Descripcion\"\n    }), React.createElement(\"br\", null), React.createElement(\"button\", null, \"Set Change\"));\n  }\n});\nmodule.exports = GreeterForm;\n\n//# sourceURL=webpack:///./public/components/GreeterForm.js?");
+
+/***/ }),
+
+/***/ "./public/components/GreeterMessage.js":
+/*!*********************************************!*\
+  !*** ./public/components/GreeterMessage.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar createReactClass = __webpack_require__(/*! create-react-class */ \"./node_modules/create-react-class/index.js\");\n\nvar GreeterMessage = createReactClass({\n  displayName: \"GreeterMessage\",\n  render: function render() {\n    var name = this.props.name;\n    var message = this.props.message;\n    return React.createElement(\"div\", null, React.createElement(\"h1\", null, \"Hello \", name, \"!\"), React.createElement(\"p\", null, message));\n  }\n});\nmodule.exports = GreeterMessage;\n\n//# sourceURL=webpack:///./public/components/GreeterMessage.js?");
 
 /***/ })
 
